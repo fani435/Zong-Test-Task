@@ -22,20 +22,35 @@ public class BoxColliderManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isResetBox)
+        //If sphere has entered
+        if(other.CompareTag("Sphere"))
         {
-            PlayerManager.instance.ResetPosition();
-        }
-        else
-        {
-            uiPanel.SetActive(true);
-            particles.Play();
-            particles.GetComponent<AudioSource>().Play();
+            //If sphere is not being grabbed
+            if(!other.GetComponent<Rigidbody>().isKinematic)
+            {
+                //Box C
+                if (isResetBox)
+                {
+                    PlayerManager.instance.ResetPosition();
+                    other.GetComponent<SphereManager>().ResetPosition();
+                    UIManager.instance.HideMainCanvas();
+                }
+                //Box A and B
+                else
+                {
+                    uiPanel.SetActive(true);
+                    particles.Play();
+                    particles.GetComponent<AudioSource>().Play();
+                }
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        uiPanel.SetActive(false);
+        if(uiPanel)
+        {
+            uiPanel.SetActive(false);
+        }
     }
 }

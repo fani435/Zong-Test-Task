@@ -10,22 +10,23 @@ public class UIManager : MonoBehaviour
     public Button previousButton;
     public Color greenColor;
 
-    // Start is called before the first frame update
-    void Start()
+    public static UIManager instance;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void showMainCanvas()
+    public void ShowMainCanvas()
     {
         stoneCanvas.SetActive(false);
         mainCanvas.SetActive(true);
+    }
+
+    public void HideMainCanvas()
+    {
+        mainCanvas.SetActive(false);
+        stoneCanvas.SetActive(true);
     }
 
     public void ButtonPressed(Button pressedButton)
