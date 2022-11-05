@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject stoneCanvas;
+    public GameObject mainCanvas;
     public Button previousButton;
     public Color greenColor;
 
@@ -18,6 +20,12 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void showMainCanvas()
+    {
+        stoneCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
     }
 
     public void ButtonPressed(Button pressedButton)
