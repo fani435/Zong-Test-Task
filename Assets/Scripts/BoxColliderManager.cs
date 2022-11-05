@@ -30,6 +30,7 @@ public class BoxColliderManager : MonoBehaviour
         {
             uiPanel.SetActive(true);
             particles.Play();
+            particles.GetComponent<AudioSource>().Play();
         }
     }
 
