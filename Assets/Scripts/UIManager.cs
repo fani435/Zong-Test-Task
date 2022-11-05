@@ -23,12 +23,6 @@ public class UIManager : MonoBehaviour
         mainCanvas.SetActive(true);
     }
 
-    public void HideMainCanvas()
-    {
-        mainCanvas.SetActive(false);
-        stoneCanvas.SetActive(true);
-    }
-
     public void ButtonPressed(Button pressedButton)
     {
         previousButton.image.color = greenColor;

@@ -33,7 +33,6 @@ public class BoxColliderManager : MonoBehaviour
                 {
                     PlayerManager.instance.ResetPosition();
                     other.GetComponent<SphereManager>().ResetPosition();
-                    UIManager.instance.HideMainCanvas();
                 }
                 //Box A and B
                 else
